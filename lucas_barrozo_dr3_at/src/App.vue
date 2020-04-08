@@ -16,7 +16,7 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, Helvetica,
     sans-serif;
   line-height: 1.6;
-  background: #e8f7f0;
+  background: #ffffff;
 }
 .container {
   max-width: 1100px;

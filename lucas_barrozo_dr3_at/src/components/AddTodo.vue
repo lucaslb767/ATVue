@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h3>Add Todo</h3>
-    <div>
+    <h3 @click="toggleClass">Adiciona Cartas</h3>
+    <div id="addCard">
       <form @submit.prevent="onSubmit">
-        <div><h2>Title:</h2></div>
+        <div><h2>Nome:</h2></div>
         <div><input type="text" v-model="todo_add.name" placeholder="Add Name"></div>
-        <div><h2>Description:</h2></div>
+        <div><h2>Infos extras:</h2></div>
         <div><input type="text" v-model="todo_add.imageUrl" placeholder="Add imgUrl"></div>
         <div><input type="text" v-model="todo_add.text" placeholder="Add Text"></div>
         <div><input type="text" v-model="todo_add.types" placeholder="Add type"></div>
@@ -33,6 +33,10 @@ export default {
     ...mapActions(["addTodo"]),
     onSubmit() {
       this.addTodo(this.todo_add);
+    },
+    toggleClass(){
+      var element = document.getElementById("addCard");
+      element.classList.toggle("appear");
     }
   }
 };
@@ -58,5 +62,15 @@ input[type="submit"] {
   width: 100%;
   height: 40px;
   margin: 10px;
+}
+
+#addCard{
+  height: 0;
+  opacity: 0;
+  transition:all ease .5s;
+}
+.appear{
+  height: inherit !important;
+  opacity: 1 !important;
 }
 </style>
