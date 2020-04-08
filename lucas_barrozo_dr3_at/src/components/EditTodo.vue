@@ -1,11 +1,13 @@
 <template>
   <div>
     <form @submit.prevent="onSubmit">
-      <div><h2>Title:</h2></div>
+      <div><h2>Name:</h2></div>
       <div><input type="text" v-model="todo_add.name" placeholder="Add title"></div>
       <div>
-        <input type="checkbox" v-model="todo_add.completed" value="false">
-        <label for="todo_add.completed">Está completa?</label>
+        <h2>Text:</h2>
+        <input type="text" v-model="todo_add.text" placeholder="Add Text">
+        <h2>URL:</h2>
+        <input type="text" v-model="todo_add.imageUrl" placeholder="Add image url">
       </div>
 
       <div><input type="submit" value="Submit"></div>
