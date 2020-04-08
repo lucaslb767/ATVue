@@ -12,7 +12,7 @@
         :key="todo.id"
         :id="todo.id"
         class="todo"
-        :class="{'land':todo.types[0]=='Land' || todo.types == 'Land'}"
+        :class="todo.types[0]"
       >
       <img :src="todo.imageUrl" :alt="todo.name">
       <router-link
@@ -94,9 +94,57 @@ i {
   height: 10px;
   background: #41b883;
 }
-.land {
-  background: #35495e;
+.Land {
+  background: #85742c;
   color: #fff;
+}
+
+.Artifact {
+  background: #999;
+}
+
+.Conspiracy {
+  background: #444;
+}
+
+.Creature {
+  background: #af3838;
+}
+
+.Enchantment {
+  background: rgb(152, 65, 211);
+}
+
+.Instant {
+  background: rgb(245, 245, 27);
+}
+
+.Phenomenon{
+  background: #ff00ff;
+}
+
+.Plane {
+  
+}
+
+.Planeswalker {
+  background : rgb(105, 105, 170);
+}
+
+.Scheme {
+  background: #7409a5
+}
+
+.Sorcery {
+  background: rgb(214, 128, 14);
+}
+
+.Tribal {
+  background: rgb(23, 90, 23);
+}
+
+.Vanguard {
+  background: #bbb;
 }
 @media (max-width: 500px) {
   .todos {
