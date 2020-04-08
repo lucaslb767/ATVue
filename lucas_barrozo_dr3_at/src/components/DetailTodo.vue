@@ -11,8 +11,8 @@
       <div class="detail">
         <div><h3>Card Name:</h3> {{ todoById(id).name }}</div>
         <div>
-            <span v-if="todoById(id).completed">completed : <i class="fas fa-check"></i></span>  
-            <span v-else>completed : <i class="fas fa-times"></i></span> 
+            <h4>Text:</h4> {{todoById(id).text}}
+            <h4>Image:</h4> <img :src="todoById(id).imageUrl" :alt="todoById(id).name">
         </div>
 
         <button @click="editar">Editar Todo</button>
