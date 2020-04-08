@@ -4,11 +4,11 @@
     <div id="addCard">
       <form @submit.prevent="onSubmit">
         <div><h2>Nome:</h2></div>
-        <div><input type="text" v-model="todo_add.name" placeholder="Add Name"></div>
+        <div><input type="text" v-model="card_add.name" placeholder="Add Name"></div>
         <div><h2>Infos extras:</h2></div>
-        <div><input type="text" v-model="todo_add.imageUrl" placeholder="Add imgUrl"></div>
-        <div><input type="text" v-model="todo_add.text" placeholder="Add Text"></div>
-        <div><input type="text" v-model="todo_add.types" placeholder="Add type"></div>
+        <div><input type="text" v-model="card_add.imageUrl" placeholder="Add imgUrl"></div>
+        <div><input type="text" v-model="card_add.text" placeholder="Add Text"></div>
+        <div><input type="text" v-model="card_add.types" placeholder="Add type"></div>
         <div><input type="submit" value="Submit"></div>
       </form>
     </div>
@@ -21,7 +21,7 @@ export default {
   name: "AddCard",
   data() {
     return {
-      todo_add :{
+      card_add :{
         name: "",
         imageUrl: "",
         types: [""],
@@ -30,9 +30,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["addTodo"]),
+    ...mapActions(["addcard"]),
     onSubmit() {
-      this.addTodo(this.todo_add);
+      this.addcard(this.card_add);
     },
     toggleClass(){
       var element = document.getElementById("addCard");

@@ -9,13 +9,13 @@
         <button class="return">Voltar pra listagem</button> 
       </router-link>
       <div class="detail">
-        <div><h3>Card Name:</h3> {{ todoById(id).name }}</div>
+        <div><h3>Card Name:</h3> {{ cardById(id).name }}</div>
         <div><br>
-            <h4>Text:</h4> {{todoById(id).text}}
+            <h4>Text:</h4> {{cardById(id).text}}
             <br>
-            <h4>Type:</h4> {{todoById(id).types[0]}}
+            <h4>Type:</h4> {{cardById(id).types[0]}}
             <br>
-            <h4>Image:</h4> <img :src="todoById(id).imageUrl" :alt="todoById(id).name">
+            <h4>Image:</h4> <img :src="cardById(id).imageUrl" :alt="cardById(id).name">
         </div>
 
         <button @click="editar">Editar Carta</button>
@@ -28,12 +28,12 @@
 
 import { mapGetters } from "vuex";
 export default {
-    name: "DetailTodo",
+    name: "Detailcard",
     data: function(){
         return{ 
             id : this.$route.params.id,}
     },
-    computed: mapGetters(["todoById"]),
+    computed: mapGetters(["cardById"]),
     methods: {
         editar() {
         this.$router.push({ name: 'edit-card' , params: { id: this.id } });

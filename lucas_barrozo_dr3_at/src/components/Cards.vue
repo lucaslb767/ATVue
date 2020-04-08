@@ -5,25 +5,25 @@
       <AddCard/>
     </div>
     <h3>Cartas</h3>
-    <div class="todos">
+    <div class="cards">
       <div
        
-        v-for="todo in allTodos"
-        :key="todo.id"
-        :id="todo.id"
-        class="todo"
-        :class="todo.types[0]"
+        v-for="card in allcards"
+        :key="card.id"
+        :id="card.id"
+        class="card"
+        :class="card.types[0]"
       >
-      <img :src="todo.imageUrl" :alt="todo.name">
+      <img :src="card.imageUrl" :alt="card.name">
       <router-link
            tag="h5"
-           :to="{ name: 'DetailCard', params: { id: todo.id } }"
+           :to="{ name: 'DetailCard', params: { id: card.id } }"
        >
-        {{ todo.name }}
+        {{ card.name }}
       </router-link>
       
-        <div><p> {{ todo.text }}</p></div>
-        <a @click="deleteTodo(todo.id)" class="destroy-button">Delete Card</a>
+        <div><p> {{ card.text }}</p></div>
+        <a @click="deletecard(card.id)" class="destroy-button">Delete Card</a>
        
       </div>
     </div>
@@ -38,23 +38,23 @@ export default {
   name: "Cards",
   components:{AddCard},
   methods: {
-    ...mapActions(["getTodos", "deleteTodo"]),
+    ...mapActions(["getcards", "deletecard"]),
 
   },
-  computed: mapGetters(["allTodos"]),
+  computed: mapGetters(["allcards"]),
   created() {
-    this.getTodos();
+    this.getcards();
   }
 };
 </script>
 
 <style scoped>
-.todos {
+.cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
 }
-.todo {
+.card {
   border: 1px solid #ccc;
   background: #41b883;
   padding: 1rem;
@@ -147,7 +147,7 @@ i {
   background: #bbb;
 }
 @media (max-width: 500px) {
-  .todos {
+  .cards {
     grid-template-columns: 1fr;
   }
 }

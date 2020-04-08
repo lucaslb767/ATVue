@@ -1,53 +1,53 @@
 import axios from "axios";
 
 const state = {
-  todos: []
+  cards: []
 };
 const getters = {
-  allTodos: state => state.todos,
-  todoById: (state) => (id) => (state.todos.filter(t => t.id == id))[0],
+  allcards: state => state.cards,
+  cardById: (state) => (id) => (state.cards.filter(t => t.id == id))[0],
 };
 const actions = {
-  fetchTodos({ commit }) {
-      commit("setTodos");
+  fetchcards({ commit }) {
+      commit("setcards");
   },
-  getTodos({ commit }) {
+  getcards({ commit }) {
     axios.get(
         "https://api.magicthegathering.io/v1/cards"
       ).then((response) => {
         console.log(response.data)
-        commit('getTodo', response.data.cards);
+        commit('getcard', response.data.cards);
     });
 },
-   addTodo({ commit }, todo_add) {
-    const new_index =  state.todos.length +1
+   addcard({ commit }, card_add) {
+    const new_index =  state.cards.length +1
     const response =  {
             "id": new_index ,
-            "name": todo_add.name,
-            "imageUrl": todo_add.imageUrl,
-            "types":todo_add.types,
-            "text":todo_add.text
+            "name": card_add.name,
+            "imageUrl": card_add.imageUrl,
+            "types":card_add.types,
+            "text":card_add.text
           }
-    commit("newTodo",response);
+    commit("newcard",response);
   },
-  deleteTodo({ commit }, id) {
-    commit("removeTodo", id);
+  deletecard({ commit }, id) {
+    commit("removecard", id);
   },
-  updateTodo({ commit }, updTodo) {
-    commit("updateTodo", updTodo);
+  updatecard({ commit }, updcard) {
+    commit("updatecard", updcard);
   },
   
 };
 const mutations = {
-  setTodos: (state) => state.todos,
-  getTodo: (state, todo) => (state.todos = todo),
-  newTodo: (state, todo) => state.todos.push(todo),
-  removeTodo: (state, id) =>
-    (state.todos = state.todos.filter(t => t.id !== id)),
-  updateTodo: (state, updTodo) => {
-      const index = state.todos.findIndex(t => t.id === updTodo.id)
+  setcards: (state) => state.cards,
+  getcard: (state, card) => (state.cards = card),
+  newcard: (state, card) => state.cards.push(card),
+  removecard: (state, id) =>
+    (state.cards = state.cards.filter(t => t.id !== id)),
+  updatecard: (state, updcard) => {
+      const index = state.cards.findIndex(t => t.id === updcard.id)
       if (index !== -1) {
-        state.todos.splice(index, 1, updTodo);
+        state.cards.splice(index, 1, updcard);
         }
       }
 };
