@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Todos from './components/Todos'
-import DetailTodo from './components/DetailTodo'
-import EditTodo from './components/EditTodo'
+import Cards from './components/Cards'
+import DetailCard from './components/DetailCard'
+import EditCard from './components/EditCard'
 
 Vue.use(VueRouter);
 
@@ -12,16 +12,16 @@ export default new VueRouter({
         {
             path: '/',
             name: 'ok',
-            component: Todos
+            component: Cards
         },{
-            path: '/todo/:id',
-            name: 'detailTodo',
-            component: DetailTodo,
+            path: '/card/:id',
+            name: 'DetailCard',
+            component: DetailCard,
             children: [
                 {
                     path: 'edit',
-                    name: 'edit-todo',
-                    component: EditTodo
+                    name: 'edit-card',
+                    component: EditCard
                 }
             ]
         }
