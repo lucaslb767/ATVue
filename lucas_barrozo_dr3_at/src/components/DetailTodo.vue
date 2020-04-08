@@ -1,21 +1,23 @@
 <template>
     <div>
     
-        <h1>DETALHAR TODO</h1>
+        <h1>Detalhes da carta</h1>
         <router-link
            tag="a"
            :to="{ name: 'ok' }"
        >
-        Voltar pra listagem
+        <button class="return">Voltar pra listagem</button> 
       </router-link>
       <div class="detail">
         <div><h3>Card Name:</h3> {{ todoById(id).name }}</div>
         <div>
             <h4>Text:</h4> {{todoById(id).text}}
+            <h4>Type:</h4> {{todoById(id).types[0]}}
+            <br>
             <h4>Image:</h4> <img :src="todoById(id).imageUrl" :alt="todoById(id).name">
         </div>
 
-        <button @click="editar">Editar Todo</button>
+        <button @click="editar">Editar Carta</button>
         </div>
         <router-view></router-view>
     </div>
@@ -41,7 +43,7 @@ export default {
 </script>
 
 <style>
-button{
+button, .return{
   flex: 2;
   background: #1BBC9B;
   border: 1px solid #1BBC9B;
@@ -60,4 +62,7 @@ i {
   position: inherit;
 }
 
+h3, h4 {
+    display: inline;
+}
 </style>
