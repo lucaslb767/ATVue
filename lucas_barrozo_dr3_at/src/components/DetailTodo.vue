@@ -9,7 +9,7 @@
         Voltar pra listagem
       </router-link>
       <div class="detail">
-        <div><h3>title :</h3> {{ todoById(id).name }}</div>
+        <div><h3>Card Name:</h3> {{ todoById(id).name }}</div>
         <div>
             <span v-if="todoById(id).completed">completed : <i class="fas fa-check"></i></span>  
             <span v-else>completed : <i class="fas fa-times"></i></span> 

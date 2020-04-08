@@ -12,7 +12,7 @@
         :key="todo.id"
         :id="todo.id"
         class="todo"
-        :class="{'is-complete':todo.types[0] =='Land' || todo.types == 'Land'}"
+        :class="{'land':todo.types[0]=='Land' || todo.types == 'Land'}"
       >
       <img :src="todo.imageUrl" :alt="todo.name">
       <router-link
@@ -94,7 +94,7 @@ i {
   height: 10px;
   background: #41b883;
 }
-.is-complete {
+.land {
   background: #35495e;
   color: #fff;
 }
